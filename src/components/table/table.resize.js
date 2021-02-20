@@ -1,14 +1,14 @@
 import {$} from '@core/dom'
 
 export function resizeHandler($root, event) {
-  const $resizeEl = $(event.target)
-  const $parent = $resizeEl.closest('[data-type="resizable"]')
+  const $resizer = $(event.target)
+  const $parent = $resizer.closest('[data-type="resizable"]')
   const coords = $parent.getCoords()
-  const type = $resizeEl.data.resize
+  const type = $resizer.data.resize
   const sideProp = type === 'col' ? 'bottom' : 'right'
   let value
 
-  $resizeEl.css({
+  $resizer.css({
     opacity: 1,
     [sideProp]: '-5000px'
   })
@@ -17,11 +17,11 @@ export function resizeHandler($root, event) {
     if (type === 'col') {
       const delta = e.pageX - coords.right
       value = coords.width + delta
-      $resizeEl.css({right: -delta + 'px'})
+      $resizer.css({right: -delta + 'px'})
     } else {
       const delta = e.pageY - coords.bottom
       value = coords.height + delta
-      $resizeEl.css({bottom: -delta + 'px'})
+      $resizer.css({bottom: -delta + 'px'})
     }
   }
 
@@ -37,7 +37,7 @@ export function resizeHandler($root, event) {
       $parent.css({height: value + 'px'})
     }
 
-    $resizeEl.css({
+    $resizer.css({
       opacity: 0,
       bottom: 0,
       right: 0
