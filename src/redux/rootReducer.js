@@ -1,4 +1,4 @@
-import {TABLE_RESIZE} from "./types";
+import {TABLE_RESIZE} from './types';
 
 export function rootReducer(state, action) {
   let prevState
