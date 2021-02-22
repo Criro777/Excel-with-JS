@@ -1,13 +1,16 @@
-function toHTML() {
+import {storage} from '@core/utils'
+
+function toHTML(key) {
+  const model = storage(key)
+  const id = key.split(':')[1]
   return `
     <li class="db__record">
-      <a href="#">Таблица номер 1</a>
-      <strong>12.06.2020</strong>
+      <a href="#excel/${id}">${model.title}</a>
+      <strong>12.06.2020</strong> 
     </li>
   `
 }
 
-// excel:1232112
 function getAllKeys() {
   const keys = []
   for (let i = 0; i < localStorage.length; i++) {
@@ -38,4 +41,3 @@ export function createRecordsTable() {
     </ul>
   `
 }
-
