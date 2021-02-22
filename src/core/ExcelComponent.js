@@ -12,7 +12,7 @@ export class ExcelComponent extends DOMListener {
     this.prepare()
   }
 
-  // Настраивает компонент до инициализации
+  // Настройка компонент до инициализации
   prepare() {}
 
   // Возвращает шаблон компонента
@@ -35,7 +35,7 @@ export class ExcelComponent extends DOMListener {
     this.store.dispatch(action)
   }
 
-  // Сюда приходят только изменения по тем полям, на которыебыла подписка
+  // Изменения по тем полям, на которые была подписка
   storeChanged() {}
 
   isWatching(key) {
